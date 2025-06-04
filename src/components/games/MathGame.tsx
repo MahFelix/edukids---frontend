@@ -138,21 +138,23 @@ const MathGame = () => {
         </Flex>
 
         {isCorrect !== null && (
-          <Center
-            as={motion.div}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            // Removed transition prop from Center
-            p={4}
-            bg={isCorrect ? "green.100" : "red.100"}
-            color={isCorrect ? "green.700" : "red.700"}
-            borderRadius="md"
-            width="100%"
+            transition={{ duration: 0.5 }}
           >
-            <Text fontSize="xl">
-              {isCorrect ? "Correto! 🎉" : `Incorreto. A resposta é ${num1 + num2}`}
-            </Text>
-          </Center>
+            <Center
+              p={4}
+              bg={isCorrect ? "green.100" : "red.100"}
+              color={isCorrect ? "green.700" : "red.700"}
+              borderRadius="md"
+              width="100%"
+            >
+              <Text fontSize="xl">
+                {isCorrect ? "Correto! 🎉" : `Incorreto. A resposta é ${num1 + num2}`}
+              </Text>
+            </Center>
+          </motion.div>
         )}
 
         <Button
