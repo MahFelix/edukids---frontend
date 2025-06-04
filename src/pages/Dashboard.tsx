@@ -9,6 +9,7 @@ import AchievementCard from '../components/Achievements/AchievementsCard';
 import { FaGamepad, FaTrophy } from 'react-icons/fa';
 import useSound from 'use-sound';
 import clickSound from '../assets/sounds/click.mp3';
+import Footer from '../components/Footer';
 
 
 const Dashboard = () => {
@@ -109,7 +110,7 @@ const Dashboard = () => {
   };
 
   return (
-    <Box minH="100vh" bg="#F5F7FA">
+    <Box minW="100vw" minH="100vh" bg="#F5F7FA ">
       <Navbar 
         username={userData.username} 
         points={userData.points} 
@@ -144,7 +145,7 @@ const Dashboard = () => {
           </SimpleGrid>
         </Box>
         
-        <Box>
+        <Box mb={200}>
           <Box display="flex" alignItems="center" mb={4}>
             <Box as={FaTrophy} fontSize="24px" mr={2} color="yellow.500" />
             <Heading size="lg">Suas Conquistas</Heading>
@@ -162,6 +163,7 @@ const Dashboard = () => {
             ))}
           </SimpleGrid>
         </Box>
+        <Footer/>
       </Container>
     </Box>
   );

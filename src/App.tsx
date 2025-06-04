@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import AccessibilityProvider from './components/AccessibilityProvider';
 import MathGame from './components/games/MathGame';
 import AvatarCreator from './components/Avatar/AvatarCreator';
+import MinhaAventura from './components/Achievements/MinhaAventura';
 
 const customTheme = extendTheme(themeConfig);
 
@@ -17,6 +18,12 @@ function App() {
             <Route path="/" element={<Dashboard />} />
              <Route path="/games" element={<MathGame/>} />
              <Route path="/avatar" element={<AvatarCreator/>} />
+             <Route
+               path="/aventura"
+               element={
+                 <MinhaAventura isOpen={true} onClose={() => {}} />
+               }
+             />
             
           </Routes>
         </Router>
