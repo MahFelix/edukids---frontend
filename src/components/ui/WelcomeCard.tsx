@@ -1,6 +1,5 @@
 // src/components/ui/WelcomeCard.tsx
-import { Box, Button, Flex, Heading, Text, Progress } from '@chakra-ui/react';
-import { FaUserAstronaut } from 'react-icons/fa';
+import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 import AvatarCreator from '../Avatar/AvatarCreator';
 
 interface WelcomeCardProps {
@@ -10,6 +9,11 @@ interface WelcomeCardProps {
 }
 
 const WelcomeCard = ({ username, progress, onCreateAvatar }: WelcomeCardProps) => {
+  // Calcula o valor do gradiente dinamicamente
+  const progressValue = Math.max(0, Math.min(progress, 100));
+  const progressColor = '#4B9BF9';
+  const bgColor = '#E2E8F0';
+  const conicGradient = `conic-gradient(${progressColor} 0% ${progressValue}%, ${bgColor} ${progressValue}% 100%)`;
   return (
     <Box 
       bg="white" 
@@ -31,10 +35,16 @@ const WelcomeCard = ({ username, progress, onCreateAvatar }: WelcomeCardProps) =
             <Text as="span" role="img" aria-label="sol">☀️</Text>
           </Heading>
           <Text color="gray.600" mb={4}>Continue sua jornada de aprendizado e diversão!</Text>
-          
-          <AvatarCreator/>
+          <Button
+            colorScheme="blue"
+            leftIcon={undefined}
+            onClick={onCreateAvatar}
+            aria-label="Criar ou editar avatar"
+            mb={2}
+          >
+          <AvatarCreator />
+          </Button>
         </Box>
-        
         <Flex direction="column" alignItems="center">
           <Box position="relative" height="120px" width="120px">
             <Box
@@ -44,12 +54,15 @@ const WelcomeCard = ({ username, progress, onCreateAvatar }: WelcomeCardProps) =
               width="120px"
               borderRadius="50%"
               border="8px solid"
-              borderColor="#E2E8F0"
-              borderTopColor="#4B9BF9"
+              borderColor={bgColor}
+              borderTopColor={progressColor}
               transform="rotate(-90deg)"
-              style={{ 
-                background: "conic-gradient(#4B9BF9 0% 68%, #E2E8F0 68% 100%)" 
-              }}
+              style={{ background: conicGradient }}
+              aria-label={`Progresso: ${progressValue}% concluído`}
+              role="progressbar"
+              aria-valuenow={progressValue}
+              aria-valuemin={0}
+              aria-valuemax={100}
             />
             <Flex 
               position="absolute"
@@ -63,7 +76,7 @@ const WelcomeCard = ({ username, progress, onCreateAvatar }: WelcomeCardProps) =
               bg="white"
               m="8px"
             >
-              <Text fontWeight="bold" fontSize="24px">{progress}%</Text>
+              <Text fontWeight="bold" fontSize="24px">{progressValue}%</Text>
             </Flex>
           </Box>
           <Box mt={4}>

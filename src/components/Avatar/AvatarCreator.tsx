@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useRef, useEffect } from 'react';
 import {
   Modal,
@@ -38,8 +39,8 @@ const AvatarCreator: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
   const toast = useToast();
-  const initialFocusRef = useRef<HTMLButtonElement>(null);
-  
+const initialFocusRef = useRef<any>(null);
+
   // Estado do avatar
   const [avatarOptions, setAvatarOptions] = useState<{
     face: string | null;
@@ -197,7 +198,7 @@ const AvatarCreator: React.FC = () => {
           transform: "scale(1.05)"
         }}
       >
-        Criar Meu Avatar
+      
       </Button>
 
       <Modal 

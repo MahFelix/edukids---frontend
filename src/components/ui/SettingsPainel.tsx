@@ -1,5 +1,5 @@
 // src/components/ui/SettingsPanel.tsx
-import { useColorMode, Box, Button, Flex, Heading, Switch, FormControl, FormLabel, Stack, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from "@chakra-ui/react";
+import { useColorMode, Box, Flex, Heading, Switch, FormControl, FormLabel, Stack, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from "@chakra-ui/react";
 import { FaMoon, FaSun, FaFont, FaVolumeUp } from "react-icons/fa";
 
 const SettingsPanel = () => {
