@@ -6,20 +6,18 @@
       "destination": "/index.html"
     }
   ],
- "builds": [
+  "builds": [
     {
       "src": "vite.config.ts",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist",
-        "includeFiles": ["postinstall.js"]
+        "distDir": "dist"
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
     }
-  ]
+  }
 }
